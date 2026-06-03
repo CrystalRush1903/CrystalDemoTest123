@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUILDS.sg: Height Adjustable Monitor Stand VESA</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Marquee Animation */
+        .marquee {
+            white-space: nowrap;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .marquee p {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* Continuous Hovering/Floating Effect */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .floating-effect {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 font-sans antialiased overflow-x-hidden">
+
+    <!-- Announcement Bar -->
+    <div class="bg-black text-white text-sm py-2 marquee">
+        <p>⚡️Free Delivery on Orders $300 & Above ⚡️Free Delivery on Orders $300 & Above ⚡️Free Delivery on Orders $300 & Above</p>
+    </div>
+
+    <!-- Navigation -->
+    <header class="border-b border-gray-200 sticky top-0 bg-white/90 backdrop-blur-md z-50 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <!-- Logo -->
+            <div class="flex-shrink-0 font-bold text-2xl tracking-tighter uppercase transform transition duration-300 hover:scale-110 hover:text-blue-600 cursor-pointer">
+                Guilds
+            </div>
+            <!-- Main Nav -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#" class="text-gray-900 font-medium hover:text-blue-600 transition duration-300 hover:-translate-y-1">Home</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300 hover:-translate-y-1">Altura Stand</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300 hover:-translate-y-1">Accessories</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300 hover:-translate-y-1">Software</a>
+                <a href="#" class="text-gray-600 hover:text-blue-600 transition duration-300 hover:-translate-y-1">Contact us</a>
+            </nav>
+            <!-- Cart & Icons -->
+            <div class="flex items-center space-x-4">
+                <a href="#" class="text-gray-600 hover:text-gray-900 transition duration-300 hover:scale-110">Account</a>
+                <a href="#" class="text-gray-600 hover:text-gray-900 relative transition duration-300 hover:scale-110">
+                    Cart
+                    <span class="absolute top-0 right-[-10px] bg-black text-white text-xs rounded-full h-4 w-4 flex items-center justify-center transform transition duration-300 hover:scale-125">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-32 text-center overflow-hidden min-h-[60vh] flex items-center justify-center bg-gray-900 group">
+        
+        <!-- Background Video (Using attributes from your reference image) -->
+        <video id="hero-video" playsinline="true" preload="metadata" loop="loop" fetchpriority="high" class="absolute inset-0 w-full h-full object-cover z-0">
+            <source src="image\guilds_homescreen_video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <!-- Dark Overlay -->
+        <div class="absolute inset-0 bg-black/50 z-0 pointer-events-none"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-4xl mx-auto px-4" data-aos="zoom-out" data-aos-duration="1200">
+            <h1 class="text-6xl font-extrabold tracking-tight mb-6 text-white drop-shadow-lg">Uniquely Yours.</h1>
+            <p class="text-xl text-gray-200 mb-10 max-w-2xl mx-auto drop-shadow-md">More than just a monitor stand - discover 8 integrated solutions that redefine workspace organization.</p>
+            
+            <a href="#product" class="inline-block bg-white text-black px-10 py-4 rounded-full text-lg font-bold shadow-lg transform transition-all duration-300 hover:scale-110 hover:-translate-y-2 hover:shadow-2xl hover:bg-blue-600 hover:text-white">
+                Shop Now
+            </a>
+        </div>
+
+        <!-- Floating Mute/Unmute Button -->
+        <button id="mute-btn" class="absolute bottom-8 right-8 z-20 bg-black/60 hover:bg-black/90 text-white p-3 rounded-full backdrop-blur-md shadow-lg transform transition-all duration-300 hover:scale-110 focus:outline-none border border-gray-600 hover:border-gray-300">
+            <!-- Muted Icon (Shows by default) -->
+            <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+            </svg>
+            <!-- Unmuted/Volume Icon (Hidden by default) -->
+            <svg id="icon-unmuted" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+        </button>
+    </section>
+   <!-- Product Section -->
+   <section id="product" class="max-w-5xl mx-auto px-4 py-24 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] lg:gap-30 gap-8 overflow-hidden items-start">
+        
+    <!-- Product Images Placeholder with FLOATING EFFECT -->
+    <div data-aos="fade-right" data-aos-duration="1000" class="floating-effect group relative overflow-hidden bg-gray-50 rounded-3xl aspect-square lg:aspect-auto lg:h-[600px] w-full flex items-center justify-center cursor-pointer shadow-lg border border-gray-200 transition-all duration-500">
+        <img 
+            src="image\Guilds_Product_Only_1.jpg" 
+            alt="Guilds Altura VESA Monitor Stand" 
+            class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-105"
+        >  
+        <div class="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+    </div>
+
+    <!-- Product Details (Modern Light UI with ALL Variants) -->
+    <div data-aos="fade-left" data-aos-duration="1000" class="flex flex-col justify-start lg:pt-6">
+        
+        <h2 class="text-3xl lg:text-4xl font-extrabold mb-3 text-slate-900 tracking-tight leading-snug">Altura Monitor Stand for Desk – VESA Arm Edition</h2>
+
+        <!-- Pricing -->
+       <div class="flex items-center space-x-3 mb-4">
+            <span class="text-3xl font-black text-blue-600">$315.00</span>
+            <span class="text-lg text-slate-400 line-through font-medium">$395.00</span>
+            <span class="bg-blue-100 text-blue-700 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wider">Save 20%</span>
+        </div>
+        
+        <!-- Reviews -->
+        <div class="mb-8 flex items-center gap-2 cursor-pointer group">
+            <div class="flex text-amber-400 text-base">
+                ★★★★★
+            </div>
+            <p class="text-slate-500 text-sm font-medium group-hover:text-blue-600 transition-colors">5.0 Reviews (126)</p>
+        </div>
+
+        <!-- Helper Banner -->
+        <div class="bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs font-medium text-slate-600 mb-8 flex items-center gap-3">
+            <svg class="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            Select only 1 edition from either the Basic or Premium section
+        </div>
+
+      <!-- Basic Edition -->
+      <div class="mb-8">
+        <div class="mb-4">
+            <h4 class="font-bold text-slate-900 text-lg">Basic Edition</h4>
+            <p class="text-[13px] font-bold text-[#d97706] mt-1">Choose 1 Normal Finish</p>
+        </div>
+        <div class="flex flex-wrap gap-4">
+            <!-- Forged Carbon -->
+            <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-blue-400 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] bg-slate-800 rounded-lg mb-2 shadow-inner"></div>
+                <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight text-center">Forged<br>Carbon</span>
+                <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+            </button>
+            
+            <!-- Carbon Fiber -->
+            <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-blue-400 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] bg-slate-900 rounded-lg mb-2 border border-slate-100 shadow-sm"></div>
+                <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight text-center">Carbon<br>Fiber</span>
+                <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+            </button>
+            
+            <!-- Cherry Blossom -->
+            <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-blue-400 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer">
+                <div class="w-12 h-12 bg-[#fbcfe8] rounded-lg mb-2 border border-pink-200 shadow-sm"></div>
+                <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight text-center">Cherry<br>Blossom</span>
+                <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+            </button>
+            
+            <!-- Imperial Violet (Sold Out - Unclickable) -->
+            <button class="relative w-[90px] h-[120px] border border-slate-100 rounded-xl flex flex-col items-center justify-center p-2 bg-slate-50 opacity-60 cursor-not-allowed">
+                <div class="w-12 h-12 bg-slate-300 rounded-lg mb-2"></div>
+                <span class="text-[11px] font-medium text-slate-300 leading-tight text-center">Imperial</span>
+                <span class="text-[9px] font-bold text-red-400/70 mt-1">SOLD OUT</span>
+            </button>
+            
+            <!-- Matte Black (Sold Out - Unclickable) -->
+            <button class="relative w-[90px] h-[120px] border border-slate-100 rounded-xl flex flex-col items-center justify-center p-2 bg-slate-50 opacity-60 cursor-not-allowed">
+                <div class="w-12 h-12 bg-slate-300 rounded-lg mb-2"></div>
+                <span class="text-[11px] font-medium text-slate-300 leading-tight text-center">Matte-Black</span>
+                <span class="text-[9px] font-bold text-red-400/70 mt-1">SOLD OUT</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Premium Edition -->
+    <div class="mb-10">
+        <div class="flex items-baseline justify-between mb-4">
+            <div>
+                <h4 class="font-bold text-slate-900 text-lg">Premium Edition</h4>
+                <p class="text-[13px] font-bold text-[#d97706] mt-1 flex items-center gap-2">
+                    Choose 1 Premium Finish 
+                    <span class="bg-[#fef3c7] text-[#b45309] text-[12px] font-extrabold px-2 py-0.5 rounded border border-[#fde68a]">+SGD 15</span>
+                </p>
+            </div>
+        </div>
+                 <!-- Wood -->
+                 <div class="flex flex-wrap gap-4">
+                    <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-amber-400 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer group">
+                        <div class="w-12 h-12 bg-[#b45309] rounded-lg mb-2 shadow-inner border border-amber-800/20 group-hover:scale-105 transition-transform"></div>
+                        <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight mt-auto">Wood</span>
+                        <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </button>
+                    <!-- Wave -->
+                    <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-blue-400 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer group">
+                        <div class="w-12 h-12 bg-[#93c5fd] rounded-lg mb-2 shadow-inner border border-blue-400/20 group-hover:scale-105 transition-transform"></div>
+                        <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight mt-auto">Wave</span>
+                        <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </button>
+                    <!-- Angel -->
+                    <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-amber-300 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer group">
+                        <div class="w-12 h-12 bg-[#fef08a] rounded-lg mb-2 shadow-inner border border-amber-200 group-hover:scale-105 transition-transform"></div>
+                        <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight mt-auto">Angel</span>
+                        <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </button>
+                    <!-- Kitsune -->
+                    <button onclick="selectVariant(this)" class="variant-btn relative w-[90px] h-[120px] border border-slate-200 rounded-xl flex flex-col items-center justify-center p-2 bg-white hover:border-slate-400 hover:shadow-md hover:-translate-y-1 transition-all cursor-pointer group">
+                        <div class="w-12 h-12 bg-[#e2e8f0] rounded-lg mb-2 shadow-inner border border-slate-300 group-hover:scale-105 transition-transform"></div>
+                        <span class="variant-text text-[11px] font-semibold text-slate-600 leading-tight text-center mt-auto">White Fox<br>(Kitsune)</span>
+                        <div class="variant-check hidden absolute -top-2.5 -right-2.5 bg-blue-500 text-white rounded-full p-1 shadow-md z-10">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+
+
+        <!-- Accordions -->
+        <div class="border-t border-slate-200">
+            <button onclick="toggleAccordion('overview-content', 'overview-icon')" class="w-full flex justify-between items-center py-5 text-base font-bold text-slate-800 hover:text-blue-600 transition-colors group focus:outline-none">
+                Overview
+                <svg id="overview-icon" class="w-5 h-5 text-slate-400 bg-slate-100 rounded-full p-0.5 group-hover:bg-blue-50 group-hover:text-blue-600 transition-transform duration-500 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            
+            <div id="overview-content" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                <div class="pb-6 text-base text-slate-600 leading-relaxed pr-4">
+                    <p class="font-bold mb-3 text-slate-800 text-lg">Free Shipping to Singapore, Australia & Malaysia</p>
+                    <p class="mb-4">
+                        The ultimate <span class="font-bold text-slate-800">monitor stand for desk</span> to optimize your workspace. This desk monitor stand is equipped with a Headphone Stand, Foldable Phone Stand, and USB Hub (1× USB-C, 2× USB 3.0). Personalize your setup with customizable RGB lighting and ergonomic design, supporting VESA-compatible monitors from 17" to 32" (<span class="font-bold text-slate-800">VESA 75×75mm and 100×100mm</span>).
+                    </p>
+                    <p>
+                        <span class="font-bold text-slate-800">Disclaimer:</span> Monitors not included. Compatible with VESA-mounted monitors only.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-slate-200">
+            <button onclick="toggleAccordion('specs-content', 'specs-icon')" class="w-full flex justify-between items-center py-5 text-base font-bold text-slate-800 hover:text-blue-600 transition-colors group focus:outline-none">
+                Specs
+                <svg id="specs-icon" class="w-5 h-5 text-slate-400 bg-slate-100 rounded-full p-0.5 group-hover:bg-blue-50 group-hover:text-blue-600 transition-transform duration-500 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            
+            <div id="specs-content" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                <div class="pb-6 text-base text-slate-600 leading-relaxed pr-4">
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li><span class="font-bold text-slate-800">Height:</span> 19.6 inches / 50 cm</li>
+                        <li><span class="font-bold text-slate-800">Width:</span> 9 inches / 23 cm</li>
+                        <li><span class="font-bold text-slate-800">Length:</span> 33.5 inches / 85 cm</li>
+                        <li><span class="font-bold text-slate-800">Load Capacity:</span> 80 kg</li>
+                        <li><span class="font-bold text-slate-800">Monitor Arm Load Capacity:</span> 10 kg</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-b border-slate-200 mb-8">
+            <button onclick="toggleAccordion('features-content', 'features-icon')" class="w-full flex justify-between items-center py-5 text-base font-bold text-slate-800 hover:text-blue-600 transition-colors group focus:outline-none">
+                Integrated features
+                <svg id="features-icon" class="w-5 h-5 text-slate-400 bg-slate-100 rounded-full p-0.5 group-hover:bg-blue-50 group-hover:text-blue-600 transition-transform duration-500 ease-in-out" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </button>
+            
+            <div id="features-content" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out opacity-0">
+                <div class="pb-6 text-base text-slate-600 leading-relaxed pr-4">
+                    <ul class="list-disc pl-5 space-y-3">
+                        <li>Height-adjustable monitor arm for ergonomic positioning</li>
+                        <li>Built-in headphone stand</li>
+                        <li>Foldable phone stand for small devices</li>
+                        <li>Integrated USB hub (1× USB-C, 2× USB 3.0)</li>
+                        <li>Customizable RGB lighting via Guilds software</li>
+                        <li>Supports VESA-mounted monitors from 17” to 32”</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Add to Cart & Checkout -->
+        <div class="space-y-4">
+            <button class="w-full bg-[#3ba2e3] hover:bg-blue-500 text-white py-4 rounded-xl font-bold text-lg shadow-[0_4px_14px_0_rgba(59,162,227,0.39)] hover:shadow-[0_6px_20px_rgba(59,162,227,0.23)] hover:-translate-y-0.5 transition-all active:scale-[0.98]">
+                Add to cart
+            </button>
+            <div class="text-center">
+                <a href="#" class="text-sm font-semibold text-slate-600 underline hover:text-slate-900 transition-colors inline-block pb-1">
+                    More payment options
+                </a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <!-- 4 Ways to Use -->
+    <section class="bg-gray-100 py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold mb-16" data-aos="zoom-in">4 Ways to Use the Altura Stand</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md transform transition-all duration-500 hover:-translate-y-6 hover:scale-110 hover:shadow-2xl hover:border-blue-500 border-2 border-transparent cursor-default" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-14 w-14 bg-black text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 transition-colors duration-300 hover:bg-blue-600">1</div>
+                    <h3 class="font-bold text-lg mb-3">Integrated Arm</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Mount your monitor directly onto the Altura Stand using our VESA arm for a clean setup.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md transform transition-all duration-500 hover:-translate-y-6 hover:scale-110 hover:shadow-2xl hover:border-blue-500 border-2 border-transparent cursor-default" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-14 w-14 bg-black text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 transition-colors duration-300 hover:bg-blue-600">2</div>
+                    <h3 class="font-bold text-lg mb-3">Existing Stand</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Simply place it on top of the platform and enjoy added space and organization.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md transform transition-all duration-500 hover:-translate-y-6 hover:scale-110 hover:shadow-2xl hover:border-blue-500 border-2 border-transparent cursor-default" data-aos="fade-up" data-aos-delay="300">
+                    <div class="h-14 w-14 bg-black text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 transition-colors duration-300 hover:bg-blue-600">3</div>
+                    <h3 class="font-bold text-lg mb-3">Laptop Setup</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Turn your Altura Stand into a laptop workstation—perfect for productivity.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-8 rounded-2xl shadow-md transform transition-all duration-500 hover:-translate-y-6 hover:scale-110 hover:shadow-2xl hover:border-blue-500 border-2 border-transparent cursor-default" data-aos="fade-up" data-aos-delay="400">
+                    <div class="h-14 w-14 bg-black text-white rounded-full flex items-center justify-center font-bold text-2xl mx-auto mb-6 transition-colors duration-300 hover:bg-blue-600">4</div>
+                    <h3 class="font-bold text-lg mb-3">Flush Dual Arms</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">Position the Altura Stand beneath your monitors for a seamless, flush desk setup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="max-w-7xl mx-auto px-4 py-24 overflow-hidden">
+        <div class="text-center mb-16" data-aos="fade-down">
+            <h2 class="text-4xl font-bold mb-4">Features and Price Comparison</h2>
+            <p class="text-gray-600 max-w-2xl mx-auto">Why professionals choose Guilds over other monitor stand solutions</p>
+        </div>
+        
+        <div class="overflow-x-auto rounded-2xl shadow-xl border border-gray-200 transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" data-aos="zoom-in">
+            <table class="min-w-full text-left border-collapse bg-white whitespace-nowrap">
+                <thead>
+                    <tr class="bg-gray-900 text-white">
+                        <th class="p-6 font-bold text-lg rounded-tl-2xl">Feature</th>
+                        <th class="p-6 font-bold text-lg text-blue-400">Altura Stand<br><span class="text-white text-sm font-normal uppercase tracking-widest">Guilds</span></th>
+                        <th class="p-6 font-bold text-lg text-gray-300">Ergotron<br><span class="text-gray-400 text-sm font-normal">LX Monitor Arms</span></th>
+                        <th class="p-6 font-bold text-lg text-gray-300 rounded-tr-2xl">PRISM+ Arc<br><span class="text-gray-400 text-sm font-normal">Stealth Pro</span></th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm text-gray-700">
+                    <!-- Row 1 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Integrated Arm with Height Adjustability</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6">Confirmed adjustable</td>
+                        <td class="p-6">12kg capacity, up to 40"</td>
+                    </tr>
+                    <!-- Row 2 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Top Platform Space For Figurines</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>Monitor arm only</td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>Monitor arm only</td>
+                    </tr>
+                    <!-- Row 3 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Keyboard and Mouse Storage</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>No storage</td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>No storage</td>
+                    </tr>
+                    <!-- Row 4 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Integrated USB Hub</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>No USB hub</td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>No USB hub</td>
+                    </tr>
+                    <!-- Row 5 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">RGB Lighting</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>No lighting</td>
+                        <td class="p-6 text-red-500 font-medium"><span class="mr-2">●</span>No lighting</td>
+                    </tr>
+                    <!-- Row 6 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Monitor Compatibility</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6">VESA 75x75, 100x100</td>
+                        <td class="p-6 font-medium">
+                            <svg class="w-5 h-5 inline-block text-green-600 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            VESA compatible
+                        </td>
+                    </tr>
+                    <!-- Row 7 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Build Quality</td>
+                        <td class="p-6 font-bold text-gray-900">Premium Metal</td>
+                        <td class="p-6">Premium Aluminum</td>
+                        <td class="p-6">Steel Construction</td>
+                    </tr>
+                    <!-- Row 8 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Durability</td>
+                        <td class="p-6 font-bold text-gray-900">Sturdy</td>
+                        <td class="p-6">10,000-cycle tested</td>
+                        <td class="p-6">Sturdy</td>
+                    </tr>
+                    <!-- Row 9 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Aesthetically Designed</td>
+                        <td class="p-6 font-bold text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6 text-green-600">
+                            <svg class="w-6 h-6 inline-block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </td>
+                        <td class="p-6 font-medium">
+                            <svg class="w-5 h-5 inline-block text-green-600 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                            Matte black finish
+                        </td>
+                    </tr>
+                    <!-- Row 10 -->
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Personalization Options</td>
+                        <td class="p-6 font-bold text-gray-900">High (Base & Signature Series)</td>
+                        <td class="p-6">Limited options</td>
+                        <td class="p-6">Low Add-on arms available</td>
+                    </tr>
+                    <!-- Row 11 -->
+                    <tr class="hover:bg-blue-50 transition duration-300">
+                        <td class="p-6 font-medium text-base">Price Range (SGD)</td>
+                        <td class="p-6 font-bold text-blue-600 text-lg">$238 "Limited-Time Launch Pricing"</td>
+                        <td class="p-6 font-medium">Contact for Quote</td>
+                        <td class="p-6 font-medium">119</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-16" data-aos="fade-up" data-aos-duration="1000">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div data-aos="fade-right" data-aos-delay="200">
+                <h4 class="font-bold text-2xl mb-6 tracking-tight uppercase transform transition duration-300 hover:text-blue-500 cursor-default">Guilds</h4>
+                <p class="text-gray-400 text-sm mb-4 leading-relaxed pr-8">A fusion of precision, adaptability, and style built for the modern workstation.</p>
+                <p class="text-gray-300 font-medium hover:text-white transition duration-300 cursor-pointer hover:translate-x-2 inline-block">contact@guilds.sg</p>
+            </div>
+            <div data-aos="fade-up" data-aos-delay="300">
+                <h4 class="font-bold text-lg mb-6">Useful Links</h4>
+                <ul class="text-gray-400 text-sm space-y-3">
+                    <li class="transform transition duration-300 hover:translate-x-3 hover:text-blue-400"><a href="#">Products</a></li>
+                    <li class="transform transition duration-300 hover:translate-x-3 hover:text-blue-400"><a href="#">Software</a></li>
+                    <li class="transform transition duration-300 hover:translate-x-3 hover:text-blue-400"><a href="#">FAQs</a></li>
+                    <li class="transform transition duration-300 hover:translate-x-3 hover:text-blue-400"><a href="#">Warranty Policy</a></li>
+                </ul>
+            </div>
+            <div data-aos="fade-left" data-aos-delay="400">
+                <h4 class="font-bold text-lg mb-6">Stay in the Loop</h4>
+                <p class="text-gray-400 text-sm mb-4">Sign up for new stories and personal offers.</p>
+                <div class="flex group transform transition duration-300 hover:scale-105">
+                    <input type="email" placeholder="E-mail address" class="px-5 py-3 w-full text-black rounded-l-md focus:outline-none transition duration-300 focus:ring-2 focus:ring-blue-500">
+                    <button class="bg-gray-800 px-6 py-3 rounded-r-md hover:bg-blue-600 transition-colors duration-300 font-medium text-white">Subscribe</button>
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-gray-600 text-sm mt-16 border-t border-gray-900 pt-8">
+            &copy; 2026, Guilds - Developed by Bigfolio LLC
+        </div>
+    </footer>
+
+    <!-- AOS Script Initialization -->
+   
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Your Custom Scripts -->
+    <script src="Homepage.js"></script>
+</body>
+</html>
